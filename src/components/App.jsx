@@ -2,18 +2,26 @@ import React from 'react';
 import Header from './Header';
 import PostList from './PostList';
 import NewPostForm from './NewPostForm';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-function App(){
+function App(props){
   return (
     <div>
       <Header />
       <Switch>
-        <Route exact path='/' component={PostList} />
+        <Route exact path='/' render={()=><PostList postList={this.props.masterPostList} />} />
         <Route path='/newpost' component={NewPostForm} />
       </Switch>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    masterPostList: state.masterPostList
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App));
