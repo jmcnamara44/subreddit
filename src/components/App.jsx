@@ -11,17 +11,21 @@ function App(props){
     <div>
       <Header />
       <Switch>
-        <Route exact path='/' render={()=><PostList postList={this.props.masterPostList} />} />
+        <Route exact path='/' render={()=><PostList postList={props.masterPostList} />} />
         <Route path='/newpost' component={NewPostForm} />
       </Switch>
     </div>
   );
 }
 
+App.propTypes = {
+  masterPostList: PropTypes.object
+};
+
 const mapStateToProps = state => {
   return {
     masterPostList: state.masterPostList
-  }
-}
+  };
+};
 
 export default withRouter(connect(mapStateToProps)(App));

@@ -22,6 +22,7 @@ function NewPostForm(props){
     _title.value = '';
     _message.value = '';
   }
+
   return (
     <div>
       <form onSubmit={handleNewPostFormSubmission}>

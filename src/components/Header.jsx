@@ -5,8 +5,7 @@ function Header(){
   return (
     <div>
       <h1>Subreddit</h1>
-      <Link to='/'>Home</Link>
-      <Link to='/newpost'>Create a new post</Link>
+      <Link to='/'>Home</Link>  |  <Link to='/newpost'>Create a new post</Link>
     </div>
   );
 }

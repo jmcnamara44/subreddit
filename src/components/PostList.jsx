@@ -8,11 +8,11 @@ function PostList(props){
       {Object.keys(props.postList).map(function(postId) {
         var post = props.postList[postId];
         return <Post title={post.title}
-        message={post.message}
-        timeStamp={post.timeStamp}
-        user={post.user}
-        id={postId}
-        key={postId} />
+          message={post.message}
+          timeStamp={post.timeStamp._d}
+          user={post.user}
+          id={postId}
+          key={postId} />;
       })}
     </div>
   );
@@ -20,6 +20,6 @@ function PostList(props){
 
 PostList.propTypes = {
   postList: PropTypes.object,
-}
+};
 
 export default PostList;

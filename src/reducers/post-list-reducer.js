@@ -12,9 +12,9 @@ export default (state = {}, action) => {
         id: id
       }
     });
-    console.log(newState);
+    // console.log(newState);
     return newState;
   default:
     return state;
   }
-}
+};
