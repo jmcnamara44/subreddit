@@ -1,14 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import c from './../constants';
+import { connect } from 'react-redux';
 
 function Post(props){
-  console.log(props);
+  const handleUpvoting = (postId) => {
+    const { dispatch } = props;
+    const post = props.postList[postId];
+    console.log(postId);
+    console.log(props.postList[postId]);
+    const newPointAmount = post.points + 1;
+    const action = {
+      type: c.UPVOTE_POST,
+      id: postId,
+      points: newPointAmount
+    };
+    dispatch(action);
+  }
+
+  var message = {
+    borderStyle: 'solid'
+  };
   return (
     <div>
       <p>TITLE: {props.title}</p>
-      <p>MESSAGE: {props.message}</p>
-      <p>TIME POSTED: {props.timeStamp.toDateString()}</p>
+      <p style={message}>MESSAGE: {props.message}</p>
+      <p>DATE POSTED: {props.timeStamp.toDateString()}</p>
       <p>POSTED BY: {props.user}</p>
+      <p>Points: {props.points}</p>
+      <button onClick={() => {handleUpvoting(props.id)}}>Upvote</button>
+      <button>Downvote</button>
     </div>
   );
 }
@@ -17,7 +38,8 @@ Post.propTypes = {
   title: PropTypes.string,
   message: PropTypes.string,
   timeStamp: PropTypes.instanceOf(Date),
-  user: PropTypes.string
+  user: PropTypes.string,
+  points: PropTypes.number
 };
 
-export default Post;
+export default connect()(Post);
