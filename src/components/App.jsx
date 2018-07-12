@@ -10,7 +10,6 @@ import { v4 } from 'uuid';
 import Moment from 'moment';
 
 function App(props){
-  console.log(props);
   return (
     <div>
       <Header />
@@ -27,28 +26,28 @@ App.propTypes = {
 };
 
 const mapStateToProps = state => {
-  let randomNumber = Math.random();
-  console.log(store);
-  if (randomNumber > .5) {
-    // const { dispatch }
-    const action = {
-      type: c.ADD_POST,
-      id: v4(),
-      title: 'testtitle',
-      message: 'testmessage',
-      timeStamp: new Moment(),
-      user: 'testuser',
-      points: 0
-    };
-    dispatch(action);
+  // let randomNumber = Math.random();
+  // console.log(props);
+  // if (randomNumber > .5) {
+  //   // const { dispatch }
+  //   const action = {
+  //     type: c.ADD_POST,
+  //     id: v4(),
+  //     title: 'testtitle',
+  //     message: 'testmessage',
+  //     timeStamp: new Moment(),
+  //     user: 'testuser',
+  //     points: 0
+  //   };
+  //   dispatch(action);
+  //   return {
+  //     masterPostList: state.masterPostList
+  //   };
+  // } else {
     return {
       masterPostList: state.masterPostList
     };
-  } else {
-    return {
-      masterPostList: state.masterPostList
-    };
-  }
+  // }
 
 };
 
