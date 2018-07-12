@@ -6,6 +6,9 @@ function PostList(props){
   console.log(props.postList);
   return (
     <div>
+      <button>Sort by most popular first</button>
+      <button>Sort by newest first</button>
+      <h2>Most Recent Posts</h2>
       {Object.keys(props.postList).map(function(postId) {
         var post = props.postList[postId];
         return <Post title={post.title}
